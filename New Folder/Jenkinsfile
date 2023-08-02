@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage('Check for Git Tag') {
+            when {
+                beforeAgent true
+                changeset "tag"
+            }
+            steps {
+                echo 'New Git tag detected. Starting the pipeline...'
+            }
+        }
+    }
+}
